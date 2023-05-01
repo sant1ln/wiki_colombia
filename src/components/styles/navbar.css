@@ -1,0 +1,21 @@
+.navbar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-icon{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+}
+
+.navbar-icon h1{
+  margin-left: 10px;  
+}
+
+.navbar-input{
+  width: 60%;
+}

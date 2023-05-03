@@ -1,40 +1,22 @@
+import { useContext, useState } from "react";
 import { TextInput } from "@tremor/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { TabList, Tab } from "@tremor/react";
 import colombiaIcon from '../assets/colombia-icon.png'
 import './styles/navbar.css'
-import { useState } from "react";
-
-const LocationA = [
-  {
-    name: "Cundinamarca",
-    percentage: 120000,
-    stat: "$ 100,838",
-  },
-  {
-    name: "Antioquia",
-    percentage: 14600000,
-    stat: "$ 90,224",
-  },
-];
-
-const LocationB = [
-  {
-    name: "Presidente A",
-    percentage: 82,
-    stat: "$ 108,799",
-  },
-  {
-    name: "Presidente B",
-    percentage: 10,
-    stat: "$ 13,268",
-  },
-];
-
+import { AppContext } from "../context/AppContext";
+import { appTabs, appTypes } from "../context/types/types";
+import { useTabs } from "../hooks/useTabs";
 
 export const Navbar = () => {
 
-  const [showCard, setShowCard] = useState(true);
+  /* const {dispatch} = useContext(AppContext); */
+  const {setNewTab} = useTabs();
+
+
+  const handleChange = (value) => {
+    setNewTab(value)
+  }
 
   return (
     <header className="header">
@@ -49,37 +31,18 @@ export const Navbar = () => {
       </section>
       <nav className="header-tabs">
         <TabList
-          defaultValue="1"
+          defaultValue={appTabs.home}
           className="place-items-center"
-          onValueChange={() => setShowCard(!showCard)}
+          onValueChange={(data) => handleChange(data)}
           color="neutral"
         >
-          <Tab value="1" text="inicio"  />
-          <Tab value="2" text="Departamentos"  />
-          <Tab value="3" text="Presidentes" />
-          <Tab value="4" text="Turismo" />
-          <Tab value="5" text="Area natural" />
+          <Tab value={appTabs.home} text="inicio"  />
+          <Tab value={appTabs.states} text="Departamentos"  />
+          <Tab value={appTabs.presidents} text="Presidentes" />
+          <Tab value={appTabs.turism} text="Turismo" />
+          <Tab value={appTabs.natural} text="Area natural" />
         </TabList>
       </nav>
-
-      {showCard === true ? (
-        <div className="mt-6">
-          {LocationA.map((item) => (
-            <div className="mt-4" key={item.name}>
-              <p>{item.name}</p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="mt-6">
-          {LocationB.map((item) => (
-            <div className="mt-4" key={item.name}>
-              <p>{item.name}</p>
-            </div>
-          ))}
-        </div>
-      )}
-
 
     </header>
   )

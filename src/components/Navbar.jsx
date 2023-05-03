@@ -52,11 +52,13 @@ export const Navbar = () => {
           defaultValue="1"
           className="place-items-center"
           onValueChange={() => setShowCard(!showCard)}
+          color="neutral"
         >
-          <Tab value="1" text="Departamentos"  />
-          <Tab value="2" text="Presientes" />
-          <Tab value="3" text="Turismo" />
-          <Tab value="4" text="Area natural" />
+          <Tab value="1" text="inicio"  />
+          <Tab value="2" text="Departamentos"  />
+          <Tab value="3" text="Presidentes" />
+          <Tab value="4" text="Turismo" />
+          <Tab value="5" text="Area natural" />
         </TabList>
       </nav>
 

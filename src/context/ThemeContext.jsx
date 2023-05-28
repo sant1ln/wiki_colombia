@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState, createContext } from 'react'
 
 export const ThemeContext = createContext()
@@ -13,7 +14,16 @@ export const ThemeProvider = ({ children }) => {
 
 	const handleTheme = () => {
 		theme === Themes.light ? setTheme(Themes.dark) : setTheme(Themes.light)
+		localStorage.setItem("Theme", JSON.stringify(theme))
 	}
+
+	useEffect(() => {
+		if (localStorage.getItem("Theme")) {
+			const localStorageTheme = JSON.parse(localStorage.getItem("Theme"))
+			localStorageTheme === Themes.light ? setTheme(Themes.dark) : setTheme(Themes.light)
+		}
+	}, [])
+
 	return (
 		<ThemeContext.Provider value={{ handleTheme, theme }}>
 			{children}

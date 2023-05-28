@@ -21,7 +21,7 @@ export const Navbar = () => {
   }
 
   return (
-    <header className="header">
+    <header className={`header ${theme === Themes.dark ? "dark-Theme" : ""}`}>
       <section className="header_main_container">
         <div className="header-icon">
           <img src={colombiaIcon} width="50" height="50" />

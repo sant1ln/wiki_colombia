@@ -1,32 +1,32 @@
-.header{
+.header {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.header_main_container{  
+.header_main_container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
-.header-icon{
+.header-icon {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 30%;
 }
 
-.header-icon h1{
-  margin-left: 10px;  
+.header-icon h1 {
+  margin-left: 10px;
 }
 
-.header-input{
+.header-input {
   width: 60%;
 }
 
-.header-tabs{
+.header-tabs {
   display: flex;
   justify-content: center;
 }

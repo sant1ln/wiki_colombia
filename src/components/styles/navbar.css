@@ -5,6 +5,7 @@
 }
 
 .header_main_container {
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   justify-content: space-around;

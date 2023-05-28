@@ -1,3 +1,8 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
 .dark-Theme {
 	color: #ffff;
 	background-color: black;

@@ -5,6 +5,7 @@ import { Navbar } from "./components/Navbar";
 import "./App.css";
 import { Content } from "./containers/Content";
 import { appTabs } from "./context/types/types";
+import ThemeProvider from "./context/ThemeContext";
 
 const mock_test = {
   [appTabs.home]: 'You are in home',
@@ -23,12 +24,14 @@ function App() {
   const [appState, dispatch] = useReducer(AppReducer, initialState);
   const current_view = appState.current_tab;
   return (
-    <AppContext.Provider value={{appState,dispatch}}>
-      <Navbar />
-      <Content>
-        <h2>{mock_test[current_view]}</h2>
-      </Content>
-    </AppContext.Provider>
+    <ThemeProvider>
+      <AppContext.Provider value={{ appState, dispatch }}>
+        <Navbar />
+        <Content>
+          <h2>{mock_test[current_view]}</h2>
+        </Content>
+      </AppContext.Provider>
+    </ThemeProvider>
   );
 }
 
